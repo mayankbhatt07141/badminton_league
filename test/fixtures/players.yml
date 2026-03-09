@@ -1,0 +1,11 @@
+alice:
+  name: Alice
+  gender: Female
+
+bob:
+  name: Bob
+  gender: Male
+
+charlie:
+  name: Charlie
+  gender: Male

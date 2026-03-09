@@ -1,0 +1,26 @@
+<h1>Leaderboard</h1>
+
+<% if @players.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Player</th>
+        <th>Wins</th>
+        <th>Losses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @players.each_with_index do |player, index| %>
+        <tr>
+          <td class="rank"><%= index + 1 %></td>
+          <td><%= player.name %></td>
+          <td class="wins"><%= player.wins %></td>
+          <td class="losses"><%= player.losses %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="empty-state">No players yet. Add some players and record matches to see rankings!</p>
+<% end %>

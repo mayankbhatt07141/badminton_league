@@ -1,0 +1,9 @@
+match_one:
+  winner: alice (Player)
+  loser: bob (Player)
+  played_at: <%= 2.days.ago.to_fs(:db) %>
+
+match_two:
+  winner: bob (Player)
+  loser: charlie (Player)
+  played_at: <%= 1.day.ago.to_fs(:db) %>

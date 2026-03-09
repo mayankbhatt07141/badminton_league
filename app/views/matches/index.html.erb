@@ -1,0 +1,30 @@
+<h1>Match History</h1>
+
+<% if notice.present? %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+
+<%= link_to "Record New Match", new_match_path, class: "btn" %>
+
+<% if @matches.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Winner</th>
+        <th>Loser</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @matches.each do |match| %>
+        <tr>
+          <td><%= match.played_at.strftime("%b %d, %Y") %></td>
+          <td class="winner"><%= match.winner.name %></td>
+          <td><%= match.loser.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="empty-state">No matches recorded yet.</p>
+<% end %>

@@ -1,0 +1,31 @@
+<%= form_with(model: match) do |form| %>
+  <% if match.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(match.errors.count, "error") %> prevented this match from being saved:</h2>
+      <ul>
+        <% match.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :winner_id, "Winner" %>
+    <%= form.collection_select :winner_id, players, :id, :name, prompt: "Select winner" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :loser_id, "Loser" %>
+    <%= form.collection_select :loser_id, players, :id, :name, prompt: "Select loser" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :played_at, "Date Played" %>
+    <%= form.datetime_local_field :played_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Record Match", class: "btn" %>
+  </div>
+<% end %>

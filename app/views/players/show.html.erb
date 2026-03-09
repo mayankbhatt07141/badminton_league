@@ -1,0 +1,25 @@
+<h1><%= @player.name %></h1>
+
+<div class="detail-card">
+  <dl class="detail-list">
+    <dt>Gender</dt>
+    <dd><%= @player.gender %></dd>
+
+    <dt>Email</dt>
+    <dd><%= @player.email.presence || "—" %></dd>
+
+    <dt>Phone</dt>
+    <dd><%= @player.phone.presence || "—" %></dd>
+
+    <dt>Address</dt>
+    <dd>
+      <% address_parts = [@player.address, @player.city, @player.state, @player.zip].select(&:present?) %>
+      <%= address_parts.any? ? address_parts.join(", ") : "—" %>
+    </dd>
+
+    <dt>Member Since</dt>
+    <dd><%= @player.created_at.strftime("%b %d, %Y") %></dd>
+  </dl>
+</div>
+
+<%= link_to "Back to Players", players_path %>
